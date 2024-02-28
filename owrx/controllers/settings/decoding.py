@@ -4,7 +4,7 @@ from owrx.form.input import CheckboxInput, NumberInput, DropdownInput, Js8Profil
 from owrx.form.input.wfm import WfmTauValues
 from owrx.form.input.wsjt import Q65ModeMatrix, WsjtDecodingDepthsInput
 from owrx.form.input.converter import OptionalConverter
-from owrx.wsjt import Fst4Profile, Fst4wProfile
+from owrx.wsjt import Fst4Profile, Fst4wProfile, JT4Profile
 from owrx.breadcrumb import Breadcrumb, BreadcrumbItem
 
 
@@ -89,6 +89,11 @@ class DecodingSettingsController(SettingsFormController):
                     "fst4w_enabled_intervals",
                     "Enabled FST4W intervals",
                     [Option(v, "{}s".format(v)) for v in Fst4wProfile.availableIntervals],
+                ),
+                MultiCheckboxInput(
+                    "jt4_enabled_submodes",
+                    "Enabled JT4 Submodes",
+                    [Option(v, "{}".format(v)) for v in JT4Profile.availableSubmodes],
                 ),
                 Q65ModeMatrix("q65_enabled_combinations", "Enabled Q65 Mode combinations"),
             ),
