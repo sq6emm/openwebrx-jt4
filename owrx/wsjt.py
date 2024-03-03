@@ -215,14 +215,11 @@ class JT4Profile(WsjtProfile):
     def __init__(self, submode):
         self.submode = submode
 
-    def getInterval(self):
-        return 60
-
     def getSubmode(self):
         return self.submode
 
     def decoder_commandline(self, file):
-        return ["jt9", "-4", "-b", str(self.submode), "-F", "1000" , "-d", str(self.decoding_depth()), file]
+        return ["jt9", "-4", "-b", str(self.submode), "-d", str(self.decoding_depth()), file]
 
     def getMode(self):
         return "JT4"
