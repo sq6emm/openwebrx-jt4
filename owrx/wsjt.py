@@ -215,6 +215,9 @@ class JT4Profile(WsjtProfile):
     def __init__(self, submode):
         self.submode = submode
 
+    def getInterval(self):
+        return 60
+
     def getSubmode(self):
         return self.submode
 
