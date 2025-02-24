@@ -70,6 +70,11 @@ class DecodingSettingsController(SettingsFormController):
                     "Default WSJT decoding depth",
                     infotext="A higher decoding depth will allow more results, but will also consume more cpu",
                 ),
+                NumberInput(
+                    "wsjt_frequency_tolerance",
+                    "Default WSJT frequency tolerance",
+                    infotext="A higher frequency tolerance will allow more decodes, but will also consume more cpu",
+                ),
                 WsjtDecodingDepthsInput(
                     "wsjt_decoding_depths",
                     "Individual decoding depths",

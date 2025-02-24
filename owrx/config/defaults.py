@@ -152,6 +152,7 @@ defaultConfig = PropertyLayer(
     decoding_queue_workers=2,
     decoding_queue_length=10,
     wsjt_decoding_depth=3,
+    wsjt_frequency_tolerance=20,
     wsjt_decoding_depths=PropertyLayer(jt65=1),
     fst4_enabled_intervals=[15, 30],
     fst4w_enabled_intervals=[120, 300],
