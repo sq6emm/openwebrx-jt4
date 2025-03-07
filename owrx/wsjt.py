@@ -36,6 +36,13 @@ class WsjtProfile(AudioChopperProfile, metaclass=ABCMeta):
         # default when no setting is provided
         return 20
 
+    def q65_frequency_tolerance(self):
+        pm = Config.get()
+        if "q65_frequency_tolerance" in pm:
+            return pm["q65_frequency_tolerance"]
+        # default when no setting is provided
+        return 20
+
     def getTimestampFormat(self):
         if self.getInterval() < 60:
             return "%H%M%S"
@@ -280,7 +287,7 @@ class Q65Profile(WsjtProfile):
         return self.interval
 
     def decoder_commandline(self, file):
-        return ["jt9", "--q65", "-p", str(self.interval), "-b", self.mode.name, "-d", str(self.decoding_depth()), file]
+        return ["jt9", "--q65", "-p", str(self.interval), "-b", self.mode.name, "-d", str(self.decoding_depth()), "-F", str(self.jt4_frequency_tolerance()), file]
 
 
 class Msk144Profile(WsjtProfile):

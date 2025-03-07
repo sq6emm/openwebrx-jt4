@@ -75,6 +75,11 @@ class DecodingSettingsController(SettingsFormController):
                     "Default JT4 frequency tolerance",
                     infotext="A higher frequency tolerance will allow more decodes, but will also consume more cpu",
                 ),
+                NumberInput(
+                    "q65_frequency_tolerance",
+                    "Default Q65 frequency tolerance",
+                    infotext="A higher frequency tolerance will allow more decodes, but will also consume more cpu",
+                ),
                 WsjtDecodingDepthsInput(
                     "wsjt_decoding_depths",
                     "Individual decoding depths",

@@ -157,6 +157,7 @@ defaultConfig = PropertyLayer(
     fst4w_enabled_intervals=[120, 300],
     jt4_enabled_submodes=["F", "G"],
     jt4_frequency_tolerance=20,
+    q65_frequency_tolerance=20,
     q65_enabled_combinations=["A30", "E120", "C60"],
     js8_enabled_profiles=["normal", "slow"],
     js8_decoding_depth=3,
