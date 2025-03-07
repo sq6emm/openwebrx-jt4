@@ -71,8 +71,8 @@ class DecodingSettingsController(SettingsFormController):
                     infotext="A higher decoding depth will allow more results, but will also consume more cpu",
                 ),
                 NumberInput(
-                    "wsjt_frequency_tolerance",
-                    "Default WSJT frequency tolerance",
+                    "jt4_frequency_tolerance",
+                    "Default JT4 frequency tolerance",
                     infotext="A higher frequency tolerance will allow more decodes, but will also consume more cpu",
                 ),
                 WsjtDecodingDepthsInput(

@@ -29,13 +29,12 @@ class WsjtProfile(AudioChopperProfile, metaclass=ABCMeta):
         # default when no setting is provided
         return 3
 
-    def frequency_tolerance(self):
+    def jt4_frequency_tolerance(self):
         pm = Config.get()
-        if "wsjt_frequency_tolerance" in pm:
-            return pm["wsjt_frequency_tolerance"]
+        if "jt4_frequency_tolerance" in pm:
+            return pm["jt4_frequency_tolerance"]
         # default when no setting is provided
         return 20
-
 
     def getTimestampFormat(self):
         if self.getInterval() < 60:
@@ -230,7 +229,7 @@ class JT4Profile(WsjtProfile):
         return self.submode
 
     def decoder_commandline(self, file):
-        return ["jt9", "-4", "-b", str(self.submode), "-d", str(self.decoding_depth()), "-F", str(self.frequency_tolerance()), file]
+        return ["jt9", "-4", "-b", str(self.submode), "-d", str(self.decoding_depth()), "-F", str(self.jt4_frequency_tolerance()), file]
 
     def getMode(self):
         return "JT4"
