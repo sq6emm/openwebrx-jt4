@@ -287,7 +287,7 @@ class Q65Profile(WsjtProfile):
         return self.interval
 
     def decoder_commandline(self, file):
-        return ["jt9", "--q65", "-p", str(self.interval), "-b", self.mode.name, "-d", str(self.decoding_depth()), "-F", str(self.jt4_frequency_tolerance()), file]
+        return ["jt9", "--q65", "-p", str(self.interval), "-b", self.mode.name, "-d", str(self.decoding_depth()), "-F", str(self.q65_frequency_tolerance()), file]
 
 
 class Msk144Profile(WsjtProfile):
