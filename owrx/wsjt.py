@@ -29,13 +29,6 @@ class WsjtProfile(AudioChopperProfile, metaclass=ABCMeta):
         # default when no setting is provided
         return 3
 
-    def jt4_frequency_tolerance(self):
-        pm = Config.get()
-        if "jt4_frequency_tolerance" in pm:
-            return pm["jt4_frequency_tolerance"]
-        # default when no setting is provided
-        return 20
-
     def getTimestampFormat(self):
         if self.getInterval() < 60:
             return "%H%M%S"
@@ -77,7 +70,6 @@ class JT4ProfileSource(ConfigWiredProfileSource):
         config = Config.get()
         profiles = config["jt4_enabled_submodes"] if "jt4_enabled_submodes" in config else []
         return [JT4Profile(i) for i in profiles if i in JT4Profile.availableSubmodes]
-
 
 class Q65ProfileSource(ConfigWiredProfileSource):
     def getPropertiesToWire(self) -> List[str]:
@@ -228,8 +220,15 @@ class JT4Profile(WsjtProfile):
     def getSubmode(self):
         return self.submode
 
+    def frequency_tolerance(self):
+        config = Config.get()
+        if "jt4_frequency_tolerance" in config:
+            return config["jt4_frequency_tolerance"]
+        # default when no setting is provided
+        return 20
+
     def decoder_commandline(self, file):
-        return ["jt9", "-4", "-b", str(self.submode), "-d", str(self.decoding_depth()), "-F", str(self.jt4_frequency_tolerance()), file]
+        return ["jt9", "-4", "-b", str(self.submode), "-d", str(self.decoding_depth()), "-F", str(self.frequency_tolerance()), file]
 
     def getMode(self):
         return "JT4"
