@@ -217,9 +217,6 @@ class JT4Profile(WsjtProfile):
     def getInterval(self):
         return 60
 
-    def getSubmode(self):
-        return self.submode
-
     def frequency_tolerance(self):
         config = Config.get()
         if "jt4_frequency_tolerance" in config:
