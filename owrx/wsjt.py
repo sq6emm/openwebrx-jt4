@@ -305,6 +305,8 @@ class WsjtParser(AudioChopperParser):
                 return
 
             mode = profile.getMode()
+            if mode in ["JT4"] and (msg.endswith("$*") or msg.endswith("$#")):
+                return
             if mode in ["WSPR", "FST4W"]:
                 messageParser = BeaconMessageParser()
             else:
